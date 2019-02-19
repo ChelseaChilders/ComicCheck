@@ -1,3 +1,141 @@
+@font-face{
+    font-family: BackIssues;
+    src: url(fonts/BackIssuesBB_reg.otf);
+}
+@font-face{
+    font-family: Kalam;
+    src: url(fonts/Kalam-Regular.ttf);
+}
+@font-face{
+    font-family: Comic;
+    src: url(fonts/comic.ttf);
+}
+@font-face{
+    font-family: Gidole;
+    src: url(fonts/Gidole-Regular.otf);
+}
+
+
 body{
-    background-color: pink;
+    background-color: black;
+    color:white;
+    font-family: Gidole;
+}
+
+#myNav{
+    background-color: lightgray;
+    color: black;
+    min-height: 25px;
+    padding: 0 0 2vw 0;
+}
+#myNav p{
+    float: left;
+    padding: 10px 3vw 10px 3vw;
+    margin: 0 auto;
+    font-size: 3vw;
+}
+
+header{
+    background-color: gray;
+    text-align: center;
+    min-height: 150px;
+    font-size: calc(46px + 4.5vw)
+}
+header img{
+	width: 50px;
+	margin: auto 0;
+}
+
+#myBody{
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+    padding-top: 10px;
+}
+#myBody #tableHolder{
+    background-color: #474747;
+    min-height: 100px;
+    width: 80vw;
+    margin: auto;
+    border-radius: 5px;
+    
+}
+.cell{
+    background-color: lightgray;
+    width: 90%;
+    height: 500px;
+    margin: auto;
+    margin-right: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-top: 10px solid #474747;
+    border-bottom: 10px solid #474747;
+    border-left: 15px solid black;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    
+}
+.cell div{
+    margin-left: 20px;
+}
+.issue_img{
+    width: 25%;
+    min-height: 150px;
+    height: 20vw;
+    max-height: 210px;
+    background-color: darkred;
+    margin: 15px;
+    float: left;
+}
+.issue_img img{
+    width: 80%;
+    height: 80%;
+}
+.cell p{
+    padding: 5px;
+    font-size: 20px;
+}
+.issue_title{
+    font-size: 35px;
+}
+#issue_lists{
+    overflow: auto;
+    padding-top: 10px;
+}
+#issue_lists div{
+    float: left;
+    overflow: auto;
+    margin: 0;
+    margin-right: 5%;
+}
+#issue_lists p{
+    padding: 5px;
+}
+.issue_characters{
+    width: 20%;
+    background-color: darkblue;
+    border-radius: 10px;
+}
+.issue_teams{
+    width: 20%;
+    background-color: darkgreen;
+    border-radius: 10px;
+}
+.issue_storyArc{
+    width: 20%;
+    background-color: darkorange;
+    border-radius: 10px;
+}
+.issue_creators{
+    width: 20%;
+    background-color: darkcyan;
+    border-radius: 10px;
+}
+
+
+footer{
+    background-color: gray;
+    text-align: center;
+    min-height: 100px;
+    padding-top: 50px;
 }

@@ -1,0 +1,93 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+</script> 
+
+<script>
+    var allIssues = [];
+    //var PubID = 6000001;
+    
+    (function() {
+        "use strict";
+        
+        var main = function() {
+            var offset = 0;
+            var url;
+            
+            
+            var j=0;
+            while (j<=72) {
+                url = 'Issues_files/Issues'+offset+'.json';
+                my100rows(url, j);
+                offset++;
+                j++;
+            }
+            
+            console.log(allIssues);
+        };
+        
+        var my100rows = function(url, j){
+            
+            $.getJSON(url, function(results) {
+                
+                var i = 0;
+                
+                var IssueID;
+                var IssueNameResponse;
+                var IssueDescResponse;
+                var IssueReleaseDateResponse;
+                var IssueIssueNumResponse;
+                var IssueImgResponse;
+                var IssueBriefDescResponse;
+                
+                var IssueResponse;
+                
+                if(j == 72){
+                    while (i < 49){
+                        IssueID = results.results[i].id;
+                        IssueNameResponse = results.results[i].name;
+                        IssueDescResponse = results.results[i].description;
+                        IssueImgResponse = results.results[i].image.icon_url;
+                
+                        IssueResponse = [IssueID, '"'+IssueNameResponse+'"',IssueImgResponse];
+                
+                        allIssues.push(IssueResponse);
+                        i++;
+                    }
+                } else {
+                    while (i < 100){
+                        IssueID = results.results[i].id;
+                        IssueNameResponse = results.results[i].name;
+                        IssueDescResponse = results.results[i].description;
+                        IssueImgResponse = results.results[i].image.icon_url;
+                
+                        IssueResponse = [IssueID, '"'+IssueNameResponse+'"',IssueImgResponse];
+                
+                        allIssues.push(IssueResponse);
+                        i++;
+                    }
+                }
+            
+            });
+            
+        };
+        
+        $(document).ready(main);
+        
+    }());
+    
+    function download_csv() {
+        var csv = 'ID,Name,Img\n';
+        allIssues.forEach(function(row) {
+            csv += row.join(',');
+            csv += "\n";
+        });
+        var hiddenElement = document.createElement('a');
+        hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+        hiddenElement.target = '_blank';
+        hiddenElement.download = 'Pub.csv';
+        hiddenElement.click();
+    }
+    
+</script>
+
+<button onclick="download_csv()">Download CSV</button>
+
