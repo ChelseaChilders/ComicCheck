@@ -15,127 +15,231 @@
     src: url(fonts/Gidole-Regular.otf);
 }
 
+@font-face{
+    font-family: simp;
+    src: url(fonts/simplicity.ttf);
+}
+@font-face{
+    font-family: simpShadow;
+    src: url(fonts/simplicityShadow.ttf);
+}
+
+
+/*
+Colors:
+Dark Blue: #283b9c
+Dark Gray: #5f5f5f
+Light Gray: #7f7f7f
+
+dolka dot pic size: 1920w 1080h
+*/
+.navbar{
+    background-color: #4f4f4f;
+    color: white;
+    border: 0px;
+    border-radius: 0px;
+}
+
 
 body{
-    background-color: black;
+    background: url(images/dolkaDots.png) #283b9c;
+    background-size: 576px 324px;
     color:white;
     font-family: Gidole;
 }
 
-#myNav{
-    background-color: lightgray;
-    color: black;
-    min-height: 25px;
-    padding: 0 0 2vw 0;
-}
-#myNav p{
-    float: left;
-    padding: 10px 3vw 10px 3vw;
-    margin: 0 auto;
-    font-size: 3vw;
-}
 
-header{
-    background-color: gray;
-    text-align: center;
-    min-height: 150px;
-    font-size: calc(46px + 4.5vw)
-}
-header img{
-	width: 50px;
-	margin: auto 0;
-}
-
-#myBody{
-    background-color: black;
-    color: white;
+.container{
+    background-color: #7f7f7f;
+    width: 85vw;
     min-height: 100vh;
-    padding-top: 10px;
-}
-#myBody #tableHolder{
-    background-color: #474747;
-    min-height: 100px;
-    width: 80vw;
-    margin: auto;
-    border-radius: 5px;
-    
-}
-.cell{
-    background-color: lightgray;
-    width: 90%;
-    height: 500px;
-    margin: auto;
-    margin-right: 0;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    border-top: 10px solid #474747;
-    border-bottom: 10px solid #474747;
-    border-left: 15px solid black;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    
-}
-.cell div{
-    margin-left: 20px;
-}
-.issue_img{
-    width: 25%;
-    min-height: 150px;
-    height: 20vw;
-    max-height: 210px;
-    background-color: darkred;
-    margin: 15px;
-    float: left;
-}
-.issue_img img{
-    width: 80%;
-    height: 80%;
-}
-.cell p{
-    padding: 5px;
-    font-size: 20px;
-}
-.issue_title{
-    font-size: 35px;
-}
-#issue_lists{
-    overflow: auto;
-    padding-top: 10px;
-}
-#issue_lists div{
-    float: left;
-    overflow: auto;
-    margin: 0;
-    margin-right: 5%;
-}
-#issue_lists p{
-    padding: 5px;
-}
-.issue_characters{
-    width: 20%;
-    background-color: darkblue;
-    border-radius: 10px;
-}
-.issue_teams{
-    width: 20%;
-    background-color: darkgreen;
-    border-radius: 10px;
-}
-.issue_storyArc{
-    width: 20%;
-    background-color: darkorange;
-    border-radius: 10px;
-}
-.issue_creators{
-    width: 20%;
-    background-color: darkcyan;
-    border-radius: 10px;
 }
 
+#mySearch{
+	margin: 10px;
+	margin-left: 10%;
+	margin-right: 10%;
+	color: black;
+}
+#searchBar{
+	width: 80%;
+	color: black;
+}
+#searchBtn{
+	background: url(images/dolkaDots.png) #283b9c;
+    background-size: 576px 324px;
+    color: #ffffff;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 6px 6px #4f4f4f;
+    text-align: center;
+    width: 10%;
+}
+
+.issue_img{
+    width: 180px;
+    height: 240px;
+    float: left;
+    margin-right: 15px;
+}
 
 footer{
-    background-color: gray;
-    text-align: center;
-    min-height: 100px;
-    padding-top: 50px;
+	background-color: #4f4f4f;
+	height: 200px;
 }
+footer p{
+	margin-left: 50px;
+}
+
+
+/*
+//////////////////////////////////////////////////////////
+Login/Register
+//////////////////////////////////////////////////////////
+*/
+
+/*
+Colors:
+Dark Blue: #283b9c
+Dark Gray: #5f5f5f
+Light Gray: #7f7f7f
+
+dolka dot pic size: 1920w 1080h
+*/
+
+/*Login and Register Page*/
+#LR{
+    text-align: center;
+    background-color: #7f7f7f;
+    font-family: sans-serif;
+}
+#LR_left_side{
+    background-color: #7f7f7f;
+    float: left;
+    width: 80%;
+    height: 100vh;
+    position: relative;
+}
+.LR_logo{
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.LR_logo img{
+    width: 100%;
+    margin-top: 75px;
+}
+.LR_logo_Pt2{
+    width: 50%;
+    margin: auto;
+}
+.LR_logo_Pt2 img{
+    width: 100%;
+    margin-top: 15px;
+}
+#LR_right_side{
+    background-color: #3f3f3f;
+    /*background-size: 768px 432px;*/
+    background-size: 576px 324px;
+    background-repeat: repeat;
+    float: right;
+    width: 20%;
+    height: 100vh;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: relative;
+}
+#LR_buttonDiv{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#LR button{
+    background: url(images/dolkaDots.png) #283b9c;
+    background-size: 576px 324px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 6px 6px #1f1f1f;
+    font-family: simp;
+    font-size: 45px;
+    letter-spacing: 3px;
+    color: #fff;
+    cursor:pointer;
+}
+
+/*Register Form*/
+#RegisterForm{
+	visibility: hidden;
+    margin-top: 20px;
+}
+#RegisterForm h1{
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+#RegisterForm input{
+    font-size: 15px;
+    padding: 2px;
+    height: 35px;
+    width: 225px;
+    margin: 3px;
+}
+.myFormBtn{
+    background: url(images/dolkaDots.png) #283b9c;
+    background-size: 576px 324px;
+    color: #ffffff;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 6px 6px #4f4f4f;
+}
+
+/*Login Form*/
+#LoginForm{
+	visibility: hidden;
+}
+#LoginForm h1{
+    font-size: 35px;
+    margin-bottom: 30px;
+    margin-top: -230px;
+}
+#LoginForm input{
+    font-size: 15px;
+    padding: 2px;
+    height: 35px;
+    width: 225px;
+    margin: 3px;
+}
+
+/*alert message box*/
+.alert {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 4px 20px 4px 20px;
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 20px;
+  text-shadow: none;
+  position: relative;
+  background-color: #272e3b;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid #000;
+  box-shadow: 0 0 0 1px #363d49 inset, 0 5px 10px rgba(0, 0, 0, 0.75);
+}
+.alert-error {
+  color: #f00;
+  background-color: #360e10;
+  box-shadow: 0 0 0 1px #551e21 inset, 0 5px 10px rgba(0, 0, 0, 0.75);
+}
+.alert:empty{
+    display: none;
+}
+.alert-success {
+  color: #21ec0c;
+  background-color: #15360e;
+  box-shadow: 0 0 0 1px #2a551e inset, 0 5px 10px rgba(0, 0, 0, 0.75);
+}
+
+
+
