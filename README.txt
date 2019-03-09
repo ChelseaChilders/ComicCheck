@@ -17,7 +17,7 @@ Instructions on how to test items in my contact (that can be found here: https:/
 
 Each item correlates to the task listed in the contract.
 
-1)Go to arden.cs.unca.edu/~cchilder/Childers_Capstone/ and see that the website exists and is being hosted.
+1)Go to http://arden.cs.unca.edu/~cchilder/Childers_Capstone/ and see that the website exists and is being hosted.
 Also, you can check for responsiveness by using a mobile phone, or expanding/de-expanding your browser window. 
 
 2)The database used for this project is hosted on avl.cs.unca.edu. If you have access to this database server you can view it. You may also my DatabaseScript.sql located in this repository
@@ -30,7 +30,7 @@ Also, you can check for responsiveness by using a mobile phone, or expanding/de-
 
 6)Use the search bar in a page and view the results.
 
-7)You can create an account at arden.cs.unca.edu/~cchilder/Childers_Capstone/. You don't actually have to use a real email (but it does need the @ symbol). After creating an account you're automatically logged in, you can go back to the start page and login in with the details you used. You may also use these credentials to test login: email: test@test; password: test.
+7)You can create an account at http://arden.cs.unca.edu/~cchilder/Childers_Capstone/. You don't actually have to use a real email (but it does need the @ symbol). After creating an account you're automatically logged in, you can go back to the start page and login in with the details you used. You may also use these credentials to test login: email: test@test; password: test.
 
 8)Once you logged in/registered you can store information into your profile and the DB.
 
