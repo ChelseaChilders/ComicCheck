@@ -90,25 +90,29 @@
         if (isset($_POST['Read'])) {
             $sql = "INSERT INTO cchilderDB2.User_has_ReadVolume (userID, volumeID) "
 	               . "VALUES ('$userID', '$volumeID')";
-		    
+            $sql2 = "DELETE FROM User_has_WantToReadVolume WHERE userID='$userID' AND volumeID='$volumeID'";
 		    
 		    if ($mysqli->query($sql) === true){
 		        $_SESSION['message'] = "Successful! Added $volumeID to the $userID profile!";
 		    } else {
 		        $_SESSION['message'] = "Unsuccessful! Did not add $volumeID to the $userID profile!";
 		    }
+		    if ($mysqli->query($sql2) === true){
+		        $_SESSION['message'] = "Successful! removed $volumeID to the $userID profile!";
+		    } else {
+		        $_SESSION['message'] = "Unsuccessful! Did not remove $volumeID to the $userID profile!";
+		    }
         }
         
         if (isset($_POST['Liked'])) {
 	        $sql = "INSERT INTO cchilderDB2.User_has_LikedVolume (userID, volumeID) "
     	           . "VALUES ('$userID', '$volumeID')";
-                    
-                    
-                    if ($mysqli->query($sql) === true){
-                        $_SESSION['message'] = "Successful! Added $volumeID to the $userID profile!";
-                    } else {
-                        $_SESSION['message'] = "Unsuccessful! Did not add $volumeID to the $userID profile!";
-                    }
+
+    	    if ($mysqli->query($sql) === true){
+    	        $_SESSION['message'] = "Successful! Added $volumeID to the $userID profile!";
+    	    } else {
+    	        $_SESSION['message'] = "Unsuccessful! Did not add $volumeID to the $userID profile!";
+    	    }
         }
         
         if (isset($_POST['Want'])) {

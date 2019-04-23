@@ -97,16 +97,12 @@
 		        $_SESSION['message'] = "Unsuccessful! Did not add $issueID to the $userID profile!";
 		    }
 		    
-		    $want_sql = "SELECT issueID FROM User_has_WantToReadIssue WHERE issueID='$s1' and userID='$userID'";
-		    $want_result = $mysqli->query($want_sql);
-		    if ($want_result->num_rows > 0){
-		        $sql2 = "DELETE FROM User_has_WantToReadIssue WHERE userID='$userID' AND issueID='$issueID'";
+            $sql2 = "DELETE FROM User_has_WantToReadIssue WHERE userID='$userID' AND issueID='$issueID'";
 		        if ($mysqli->query($sql2) === true){
 		            $_SESSION['message'] = "Successful! removed $issueID from the $userID profile!";
 		        } else {
 		            $_SESSION['message'] = "Unsuccessful! Did not remove $issueID to the $userID profile!";
-		        }
-		    }	    
+		        }	    
         }
         
         if (isset($_POST['Liked'])) {            
