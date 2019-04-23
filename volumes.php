@@ -28,7 +28,7 @@ require 'navBar.php';
       
     <div class="container-fluid" style="background-color: whitesmoke;">
         
-    <h2>Comic Issues</h2>
+    <h2>Comic Volumes</h2>
 
         <?php
         
@@ -41,7 +41,7 @@ require 'navBar.php';
             $search = $_POST['search_word'];
             $_SESSION['searchWord'] = $search;
             
-            $sql = "SELECT COUNT(issueID) AS total FROM Issues WHERE (`title` LIKE '%".$search."%') OR (`desc` LIKE '%".$search."%')";
+            $sql = "SELECT COUNT(volumeID) AS total FROM Volumes WHERE (`title` LIKE '%".$search."%') OR (`desc` LIKE '%".$search."%')";
             $result = $mysqli->query($sql);
             $row = $result->fetch_assoc();
             $total_pages = ceil($row["total"] / $results_per_page); // calculate total pages with results
@@ -52,24 +52,24 @@ require 'navBar.php';
             <?php
             for ($i=1; $i<=$total_pages; $i++) {  // print links for all pages
                 if ($i==1){?>
-                	<span><a <?php if ($page==$i){?>class="active"<?php }?>href="issues.php?page=<?php echo $i?>">
+                	<span><a <?php if ($page==$i){?>class="active"<?php }?>href="volumes.php?page=<?php echo $i?>">
                     &nbsp;Page <?php echo $i?>&nbsp; </a></span> <?php
                     if ($page!=1 && $page-1!=1 && $page-2!=1 && $page-3!=1){ ?>
                         <span><a>...</a></span><?php
                     }
                 } else if ($i==$page){ ?>
-                    <span><a class="active" href="issues.php?page=<?php echo $i?>">
+                    <span><a class="active" href="volumes.php?page=<?php echo $i?>">
                     &nbsp;Page <?php echo $i?>&nbsp; </a></span> <?php 
                 } else if ($i==$total_pages){ 
                     if ($page!=$total_pages && $page+1!=$total_pages && $page+2!=$total_pages && $page+3!=$total_pages){?>
                 		<span><a>...</a></span><?php
                     } ?>
-                    <span><a href="issues.php?page=<?php echo $i?>">
+                    <span><a href="volumes.php?page=<?php echo $i?>">
                     &nbsp;Page <?php echo $i?>&nbsp; </a></span> <?php 
                 } else if ($i<$page-2 || $i>$page+2) {
                     //nothing
                 } else { ?>
-                	<span><a href="issues.php?page=<?php echo $i?>">
+                	<span><a href="volumes.php?page=<?php echo $i?>">
                 	&nbsp;Page <?php echo $i?>&nbsp; </a></span> <?php
                 }
             };
@@ -84,8 +84,8 @@ require 'navBar.php';
             $start_from = ($page-1) * $results_per_page; 
             
             
-            $sql = "SELECT * FROM Issues WHERE (`title` LIKE '%".$search."%') OR (`desc` LIKE '%".$search."%')
-                ORDER BY issueID ASC LIMIT $start_from, ".$results_per_page;
+            $sql = "SELECT * FROM Volumes WHERE (`title` LIKE '%".$search."%') OR (`desc` LIKE '%".$search."%')
+                ORDER BY volumeID ASC LIMIT $start_from, ".$results_per_page;
             $rs_result = $rs_result = $mysqli->query($sql);
   
             
@@ -96,7 +96,7 @@ require 'navBar.php';
             
             <?php
             
-            $sql = "SELECT COUNT(issueID) AS total FROM Issues";
+            $sql = "SELECT COUNT(volumeID) AS total FROM Volumes";
             $result = $mysqli->query($sql);
             $row = $result->fetch_assoc();
             $total_pages = ceil($row["total"] / $results_per_page); // calculate total pages with results
@@ -107,24 +107,24 @@ require 'navBar.php';
             <?php
             for ($i=1; $i<=$total_pages; $i++) {  // print links for all pages
                 if ($i==1){?>
-                	<span><a <?php if ($page==$i){?>class="active"<?php }?>href="issues.php?page=<?php echo $i?>">
+                	<span><a <?php if ($page==$i){?>class="active"<?php }?>href="volumes.php?page=<?php echo $i?>">
                     &nbsp;Page <?php echo $i?>&nbsp; </a></span> <?php
                     if ($page!=1 && $page-1!=1 && $page-2!=1 && $page-3!=1){ ?>
                         <span><a>...</a></span><?php
                     }
                 } else if ($i==$page){ ?>
-                    <span><a class="active" href="issues.php?page=<?php echo $i?>">
+                    <span><a class="active" href="volumes.php?page=<?php echo $i?>">
                     &nbsp;Page <?php echo $i?>&nbsp; </a></span> <?php 
                 } else if ($i==$total_pages){ 
                     if ($page!=$total_pages && $page+1!=$total_pages && $page+2!=$total_pages && $page+3!=$total_pages){?>
                 		<span><a>...</a></span><?php
                     } ?>
-                    <span><a href="issues.php?page=<?php echo $i?>">
+                    <span><a href="volumes.php?page=<?php echo $i?>">
                     &nbsp;Page <?php echo $i?>&nbsp; </a></span> <?php 
                 } else if ($i<$page-2 || $i>$page+2) {
                     //nothing
                 } else { ?>
-                	<span><a href="issues.php?page=<?php echo $i?>">
+                	<span><a href="volumes.php?page=<?php echo $i?>">
                 	&nbsp;Page <?php echo $i?>&nbsp; </a></span> <?php
                 }
             };
@@ -137,27 +137,24 @@ require 'navBar.php';
             if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };
             $start_from = ($page-1) * $results_per_page; 
             
-
-            $sql = "SELECT * FROM Issues ORDER BY issueID ASC LIMIT $start_from, ".$results_per_page;
+            $sql = "SELECT * FROM Volumes ORDER BY volumeID ASC LIMIT $start_from, ".$results_per_page;
             $rs_result = $rs_result = $mysqli->query($sql);
              
         }
         
-        
-        
         if ($rs_result->num_rows > 0){
             while ($row = mysqli_fetch_array($rs_result)){
-                $s1 = $row['issueID'];
+                $s1 = $row['volumeID'];
                 $s2 = $row['title'];
                 $s3 = $row['desc'];
-                $s4 = $row['releaseDate'];
-                $s5 = $row['issueNum'];
+                $s4 = $row['startYr'];
+                $s5 = $row['issueCount'];
                 $s6 = $row['imgThumb'];
                 
-                require 'issueMini_div.php';
+                require 'volumeMini_div.php';
             }
         } else {
-            echo "No issues found";
+            echo "No volumes found";
         }
         ?>
             

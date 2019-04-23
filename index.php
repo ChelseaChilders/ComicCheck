@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         $email = $mysqli->real_escape_string($_POST['email']);
         $password = $mysqli->real_escape_string($_POST['password']);
-        $result = $mysqli->query("SELECT * FROM User WHERE email='$email'");
+        $result = $mysqli->query("SELECT * FROM Users WHERE email='$email'");
         
         if ( $result->num_rows == 0 ){ // User doesn't exist
             $_SESSION['message'] = "User with that email doesn't exist!";
@@ -21,11 +21,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 
                 $_SESSION['email'] = $user['email'];
                 $_SESSION['username'] = $user['username'];
+                $_SESSION['userID'] = $user['userID'];
                 
                 // This is how we'll know the user is logged in
                 $_SESSION['logged_in'] = true;
                 $_SESSION['message'] = "You've logged in!" ;
-                header("location: welcome.php");
+                header("location: home.php");
             } else {
                 $_SESSION['message'] = "You have entered wrong password, try again!" ;
             }
@@ -44,13 +45,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         
         
         //insert user data into database
-        $sql = "INSERT INTO cchilderDB.User (username, password, email) "
+        $sql = "INSERT INTO cchilderDB.User (username, email, password) "
             . "VALUES ('$username', '$password', '$email')";
             
             //if the query is successsful, redirect to welcome.php page, done!
             if ($mysqli->query($sql) === true){
                 $_SESSION['message'] = "Registration succesful! Added $username to the database!";
-                header("location: welcome.php");
+                header("location: home.php");  
             } else {
                 $_SESSION['message'] = "User $username with $password and $email could not be added to the database!";
             }
@@ -100,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         <div id="LR_buttonDiv">
             <button onclick="displayLogin()">Login</button>
             <br>
-            <button onclick="displayRegister()" style="margin-top: 50px;">Register</button></div>
+            <button onclick="displayRegister()">Register</button></div>
     </div>
 </body>
     

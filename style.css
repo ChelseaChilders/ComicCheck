@@ -1,97 +1,3 @@
-@font-face{
-    font-family: BackIssues;
-    src: url(fonts/BackIssuesBB_reg.otf);
-}
-@font-face{
-    font-family: Kalam;
-    src: url(fonts/Kalam-Regular.ttf);
-}
-@font-face{
-    font-family: Comic;
-    src: url(fonts/comic.ttf);
-}
-@font-face{
-    font-family: Gidole;
-    src: url(fonts/Gidole-Regular.otf);
-}
-
-@font-face{
-    font-family: simp;
-    src: url(fonts/simplicity.ttf);
-}
-@font-face{
-    font-family: simpShadow;
-    src: url(fonts/simplicityShadow.ttf);
-}
-
-
-/*
-Colors:
-Dark Blue: #283b9c
-Dark Gray: #5f5f5f
-Light Gray: #7f7f7f
-
-dolka dot pic size: 1920w 1080h
-*/
-.navbar{
-    background-color: #4f4f4f;
-    color: white;
-    border: 0px;
-    border-radius: 0px;
-}
-
-
-body{
-    background: url(images/dolkaDots.png) #283b9c;
-    background-size: 576px 324px;
-    color:white;
-    font-family: Gidole;
-}
-
-
-.container{
-    background-color: #7f7f7f;
-    width: 85vw;
-    min-height: 100vh;
-}
-
-#mySearch{
-	margin: 10px;
-	margin-left: 10%;
-	margin-right: 10%;
-	color: black;
-}
-#searchBar{
-	width: 80%;
-	color: black;
-}
-#searchBtn{
-	background: url(images/dolkaDots.png) #283b9c;
-    background-size: 576px 324px;
-    color: #ffffff;
-    border: 2px solid #000;
-    border-radius: 5px;
-    box-shadow: 6px 6px #4f4f4f;
-    text-align: center;
-    width: 10%;
-}
-
-.issue_img{
-    width: 180px;
-    height: 240px;
-    float: left;
-    margin-right: 15px;
-}
-
-footer{
-	background-color: #4f4f4f;
-	height: 200px;
-}
-footer p{
-	margin-left: 50px;
-}
-
-
 /*
 //////////////////////////////////////////////////////////
 Login/Register
@@ -104,19 +10,30 @@ Dark Blue: #283b9c
 Dark Gray: #5f5f5f
 Light Gray: #7f7f7f
 
+#525965
+
+#31353D
+
+
+#283b9c
+
 dolka dot pic size: 1920w 1080h
 */
 
 /*Login and Register Page*/
+body{
+	background-color: #283b9c; 
+}
 #LR{
     text-align: center;
-    background-color: #7f7f7f;
+    background-color: #283b9c;
     font-family: sans-serif;
 }
 #LR_left_side{
-    background-color: #7f7f7f;
+    background-color: #3a3f48; 
     float: left;
-    width: 80%;
+    width: 70%;
+    max-width: 1000px;
     height: 100vh;
     position: relative;
 }
@@ -140,15 +57,14 @@ dolka dot pic size: 1920w 1080h
     margin-top: 15px;
 }
 #LR_right_side{
-    background-color: #3f3f3f;
+    background-color: #283b9c;
     /*background-size: 768px 432px;*/
     background-size: 576px 324px;
     background-repeat: repeat;
     float: right;
-    width: 20%;
+    width: 25%;
+    min-width: 200px;
     height: 100vh;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
     position: relative;
 }
 #LR_buttonDiv{
@@ -158,7 +74,7 @@ dolka dot pic size: 1920w 1080h
     transform: translate(-50%, -50%);
 }
 #LR button{
-    background: url(images/dolkaDots.png) #283b9c;
+    background-color: #3a3f48;
     background-size: 576px 324px;
     border: 2px solid #000;
     border-radius: 5px;
@@ -167,6 +83,12 @@ dolka dot pic size: 1920w 1080h
     font-size: 45px;
     letter-spacing: 3px;
     color: #fff;
+    cursor:pointer;
+    margin: 20px;
+}
+
+#LR button:hover{
+    background-color: #272b33;
     cursor:pointer;
 }
 
@@ -192,7 +114,7 @@ dolka dot pic size: 1920w 1080h
     color: #ffffff;
     border: 2px solid #000;
     border-radius: 5px;
-    box-shadow: 6px 6px #4f4f4f;
+    box-shadow: 6px 6px #1f1f1f;
 }
 
 /*Login Form*/
@@ -226,6 +148,7 @@ dolka dot pic size: 1920w 1080h
   color: rgba(255, 255, 255, 0.7);
   border: 1px solid #000;
   box-shadow: 0 0 0 1px #363d49 inset, 0 5px 10px rgba(0, 0, 0, 0.75);
+  text-align: center;
 }
 .alert-error {
   color: #f00;
